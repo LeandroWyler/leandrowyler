@@ -1,228 +1,75 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#06163f">
-<title>Leandro Wyler — Full Stack Developer</title>
-<meta name="description" content="Desenvolvedor full stack e empreendedor. SaaS com IA, produtos digitais e automações.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#07162f">
+<meta name="description" content="Leandro Wyler — Full-stack developer building SaaS products, AI workflows and practical automations.">
+<title>Leandro Wyler — Full-stack Developer</title>
 <style>
-:root{--bg:#06163f;--ink:#fff4ea;--hot:#ff6a4d;--line:rgba(255,244,234,.2);--mute:rgba(255,244,234,.7)}
-*{box-sizing:border-box;margin:0}
-html{background:var(--bg)}
-body{font-family:'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:30;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-a{color:inherit}
-#loader{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:40;transition:opacity .6s}
-#loader b{font-size:clamp(3rem,18vw,9rem);font-weight:800;font-variant-numeric:tabular-nums}
-nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(1rem + env(safe-area-inset-top)) 5vw 1rem;z-index:10;font-weight:500}
-nav a{text-decoration:none}
-nav .links{display:flex;gap:1.6rem}
-nav .cta{display:none;padding:.55rem 1.1rem;border-radius:99px;background:var(--hot);color:#240800;font-weight:800}
-#hero{height:600vh;position:relative}
-.stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-canvas{position:absolute;inset:0;width:100%;height:100%}
-.stick::before,.stick::after{content:"";position:absolute;left:0;right:0;pointer-events:none;z-index:1}
-.stick::before{top:0;height:22%;background:linear-gradient(rgba(6,22,63,.7),transparent)}
-.stick::after{bottom:0;height:48%;background:linear-gradient(transparent,rgba(6,22,63,.85))}
-.t{position:absolute;left:5vw;z-index:2;opacity:0;will-change:transform,opacity;max-width:min(36vw,32rem)}
-.t h1,.t h2{font-weight:800;line-height:.9;letter-spacing:-.04em;font-size:clamp(2.4rem,7vw,6.4rem)}
-.t p{margin-top:1rem;font-weight:300;font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.4}
-#t1{bottom:9vh}#t2{top:50%;margin-top:-6rem}#t3{bottom:9vh}
-#t3 .btn{display:inline-block;margin-top:1.4rem;padding:.9rem 1.6rem;border-radius:99px;background:var(--hot);color:#240800;font-weight:800;text-decoration:none}
-.bar{position:absolute;left:0;top:0;height:4px;background:var(--hot);width:0;z-index:3}
-.hint{position:absolute;left:50%;bottom:calc(2.2vh + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:2;font-size:.85rem;color:var(--mute);text-align:center}
-.hint i{display:block;width:1px;height:34px;margin:.5rem auto 0;background:var(--ink);transform-origin:top;animation:ln 1.6s ease-in-out infinite}
-@keyframes ln{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-.mq{overflow:hidden;border-block:1px solid var(--line);padding:1.1rem 0;background:var(--hot);color:#240800}
-.mq div{display:flex;width:max-content;animation:mq 28s linear infinite}
-.mq span{font-size:clamp(1.4rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;padding-right:2rem;white-space:nowrap}
-@keyframes mq{to{transform:translateX(-50%)}}
-section.blk{padding:16vh 5vw 4vh;max-width:1400px;margin:0 auto}
-h3{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:800;letter-spacing:-.035em;line-height:1;margin-bottom:2.2rem}
-.about .rv{font-size:clamp(1.7rem,4.6vw,3.6rem);line-height:1.12;font-weight:500;letter-spacing:-.02em;max-width:24ch}
-.about .rv+.rv{margin-top:2rem;font-size:clamp(1.15rem,2.2vw,1.6rem);font-weight:300;max-width:42ch;line-height:1.35}
-.proj{list-style:none;padding:0;border-top:1px solid var(--line)}
-.proj li{position:relative;overflow:hidden;display:grid;grid-template-columns:1.1fr 2fr 1.3fr;gap:1.5rem;align-items:center;padding:1.7rem 1rem;border-bottom:1px solid var(--line);transition:color .3s}
-.proj li::before{content:"";position:absolute;inset:0;background:var(--hot);transform:translateX(-101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:0}
-.proj li>*{position:relative;z-index:1}
-.proj b{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em}
-.proj span{color:var(--mute);transition:color .3s}
-.proj em{font-style:normal;font-size:.95rem;color:var(--hot);transition:color .3s}
-@media(hover:hover){.proj li:hover{color:#240800}.proj li:hover::before{transform:none}.proj li:hover span,.proj li:hover em{color:#240800}}
-.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2.4rem}
-.stack h4{font-size:1rem;font-weight:500;color:var(--hot);margin-bottom:.8rem}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem}
-.chips span{padding:.5rem .95rem;border:1px solid var(--line);border-radius:99px;font-size:1.05rem}
-.contact{padding-bottom:10vh}
-.contact a.big{display:block;font-size:clamp(2rem,8vw,6rem);font-weight:800;letter-spacing:-.04em;text-decoration:none;line-height:1.05;padding:.15rem 0;border-bottom:1px solid var(--line);transition:color .2s,padding .3s}
-.contact a.big:hover{color:var(--hot);padding-left:.6rem}
-.mark{font-weight:800;letter-spacing:-.06em;line-height:.78;font-size:21vw;white-space:nowrap;text-align:center;color:var(--hot);overflow:hidden;padding-bottom:.02em;margin-top:6vh;user-select:none}
-footer{padding:1.2rem 5vw calc(1.2rem + env(safe-area-inset-bottom));color:var(--mute);font-size:.9rem;display:flex;justify-content:space-between}
-@media(max-width:760px){
-  nav .links{display:none}nav .cta{display:block}
-  #hero{height:520vh}
-  .t{left:6vw;right:6vw;max-width:none}
-  .t h1,.t h2{font-size:clamp(3.2rem,17vw,5.2rem)}
-  #t1,#t3{bottom:calc(11vh + env(safe-area-inset-bottom))}
-  #t2{top:15vh;margin-top:0}
-  .proj li{grid-template-columns:1fr;gap:.5rem;padding:1.4rem 0}
-  section.blk{padding-top:11vh}
-}
-@media(prefers-reduced-motion:reduce){.mq div,.hint i{animation:none}}
+:root{color-scheme:dark;--bg:#07162f;--panel:#0c2041;--ink:#f7f4ee;--muted:#a9b5c9;--line:rgba(247,244,238,.15);--hot:#ff785e;--blue:#9fc4ff;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;overflow-x:hidden}a{color:inherit}button{font:inherit}.wrap{width:min(var(--max),90vw);margin-inline:auto}.grain{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+header{position:sticky;top:0;z-index:10;background:rgba(7,22,47,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{text-decoration:none;font-weight:800;letter-spacing:-.05em;font-size:1.08rem}.brand span{color:var(--hot)}.navlinks{display:flex;align-items:center;gap:26px}.navlinks a,.lang{font-size:.9rem;color:var(--muted);text-decoration:none;transition:color .2s}.navlinks a:hover,.lang:hover{color:var(--ink)}.navright{display:flex;align-items:center;gap:18px}.lang{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 12px;cursor:pointer}.contact-pill{background:var(--hot);color:#25100c!important;border-radius:999px;padding:11px 17px;font-weight:750;text-decoration:none;font-size:.9rem}
+.hero{position:relative;min-height:690px;padding:120px 0 92px;display:grid;align-items:center;isolation:isolate}.hero:before{content:"";position:absolute;width:min(62vw,760px);aspect-ratio:1;right:-12%;top:-9%;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(43,105,198,.3),rgba(7,22,47,0) 68%)}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:750}.dot{height:8px;width:8px;background:#83e2b3;border-radius:50%;box-shadow:0 0 0 5px rgba(131,226,179,.1)}h1{font-size:clamp(3.6rem,9.5vw,8.3rem);line-height:.91;letter-spacing:-.085em;max-width:920px;margin:26px 0 25px;font-weight:850}h1 em{font-style:normal;color:var(--hot)}.lead{max-width:590px;color:var(--muted);font-size:clamp(1.05rem,2vw,1.28rem);line-height:1.65}.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:34px}.primary,.textlink{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:750}.primary{background:var(--hot);color:#25100c;border-radius:999px;padding:15px 21px}.textlink{border-bottom:1px solid var(--line);padding:10px 0}.meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:55px;color:var(--muted);font-size:.82rem}.meta span{display:flex;align-items:center;gap:8px}.meta b{color:var(--ink);font-weight:650}
+.hero-scroll{height:520vh;position:relative;padding:0}.hero-sticky{position:sticky;top:0;height:100vh;height:100svh;min-height:560px;overflow:hidden;display:flex;align-items:center;isolation:isolate}.hero-sticky:before,.hero-sticky:after{content:"";position:absolute;left:0;right:0;pointer-events:none;z-index:1}.hero-sticky:before{top:0;height:25%;background:linear-gradient(rgba(7,22,47,.6),transparent)}.hero-sticky:after{bottom:0;height:42%;background:linear-gradient(transparent,rgba(7,22,47,.86))}.hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1}.hero-sticky .hero-glow{position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 70% 40%,#12458d,#07162f 70%)}.hero-copy{position:absolute;left:5vw;right:5vw;bottom:11vh;z-index:2;max-width:700px;opacity:0;transform:translateY(28px);pointer-events:none}.hero-copy h1{font-size:clamp(3.5rem,10vw,8.3rem);line-height:.88;letter-spacing:-.085em;margin:20px 0}.hero-copy p{max-width:540px;color:var(--muted);font-size:clamp(1rem,2vw,1.25rem)}.hero-copy .primary{margin-top:24px}.hero-copy[data-step="2"]{top:18vh;bottom:auto}.hero-progress{position:absolute;top:0;left:0;height:4px;width:0;background:var(--hot);z-index:3}.hero-hint{position:absolute;bottom:calc(2vh + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:3;color:var(--muted);font-size:.82rem;text-align:center}.hero-hint i{display:block;width:1px;height:28px;background:var(--ink);margin:8px auto 0;animation:hintline 1.5s ease-in-out infinite;transform-origin:top}@keyframes hintline{0%{transform:scaleY(0)}65%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.ticker{overflow:hidden;border-block:1px solid var(--line);background:#0a1c39}.ticker-track{display:flex;width:max-content;animation:marquee 32s linear infinite}.ticker span{font-size:clamp(1.1rem,2.5vw,1.55rem);font-weight:800;letter-spacing:-.035em;padding:18px 25px;white-space:nowrap}.ticker i{color:var(--hot);font-style:normal}@keyframes marquee{to{transform:translateX(-50%)}}
+section{padding:110px 0}.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}.kicker{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--hot);font-weight:800}.section-title{font-size:clamp(2.7rem,6vw,5.3rem);line-height:.98;letter-spacing:-.07em;margin:13px 0 0}.section-copy{max-width:360px;color:var(--muted);margin:0 0 5px}.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:9px 15px;border-radius:999px;cursor:pointer;font-size:.85rem}.filter.active,.filter:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.project{min-height:335px;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(16,41,78,.98),rgba(9,26,53,.98));padding:27px;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}.project:hover{transform:translateY(-4px);border-color:rgba(255,120,94,.65)}.project.featured{grid-column:span 2;min-height:365px;background:radial-gradient(ellipse at 88% 18%,rgba(255,120,94,.16),transparent 40%),linear-gradient(130deg,#10294e,#0a1b37)}.project-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.project-num{font-size:.76rem;color:var(--muted);letter-spacing:.1em}.project-kind{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);border:1px solid rgba(159,196,255,.25);border-radius:99px;padding:6px 9px}.project h3{font-size:clamp(1.7rem,3vw,2.6rem);letter-spacing:-.055em;margin:30px 0 10px;line-height:1.05}.project p{color:var(--muted);max-width:570px;margin:0;line-height:1.65}.project-foot{margin-top:auto;padding-top:28px;display:flex;justify-content:space-between;align-items:end;gap:15px}.tags{display:flex;flex-wrap:wrap;gap:7px}.tags span{font-size:.75rem;color:#d7dfeb;border:1px solid var(--line);border-radius:6px;padding:5px 8px}.arrow{height:38px;width:38px;flex:0 0 auto;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);font-size:1.1rem}.project.hidden{display:none}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}.about-statement{font-size:clamp(1.8rem,4vw,3.2rem);line-height:1.13;letter-spacing:-.045em;margin:0}.about-statement em{font-style:normal;color:var(--hot)}.about-body{color:var(--muted);font-size:1.02rem;line-height:1.8}.about-body p{margin:0 0 18px}.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}.principle{border-top:1px solid var(--line);padding-top:14px}.principle b{display:block;font-size:1.45rem;letter-spacing:-.04em}.principle span{color:var(--muted);font-size:.82rem}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.stack-card{border:1px solid var(--line);border-radius:14px;padding:22px;background:rgba(12,32,65,.55)}.stack-card h3{font-size:.95rem;color:var(--hot);margin:0 0 18px}.chips{display:flex;flex-wrap:wrap;gap:7px}.chips span{font-size:.8rem;padding:7px 9px;border-radius:7px;background:rgba(247,244,238,.055);color:#d8e0ed}
+.contact-section{padding:70px 0 95px}.contact-panel{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;padding:clamp(28px,6vw,70px);background:radial-gradient(ellipse at 100% 0,rgba(255,120,94,.18),transparent 43%),#0c2041}.contact-panel h2{font-size:clamp(3rem,8vw,7rem);letter-spacing:-.08em;line-height:.95;margin:15px 0 22px;max-width:850px}.contact-panel p{color:var(--muted);max-width:500px}.contact-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.contact-links a{padding:13px 17px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-weight:700}.contact-links a:first-child{background:var(--hot);color:#25100c;border-color:var(--hot)}footer{border-top:1px solid var(--line);padding:23px 0 30px;color:var(--muted);font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}.reveal.in{opacity:1;transform:none}
+@media(max-width:800px){.nav{height:66px}.navlinks{display:none}.hero-scroll{height:480vh}.hero-copy{left:6vw;right:6vw;bottom:12vh}.hero-copy h1{font-size:clamp(3.2rem,16vw,5.5rem)}.hero-copy[data-step="2"]{top:14vh;bottom:auto}.section-top{display:block}.section-copy{margin-top:18px}.projects{grid-template-columns:1fr}.project.featured{grid-column:auto}.project{min-height:300px}.about-grid{grid-template-columns:1fr;gap:24px}.stack-grid{grid-template-columns:repeat(2,1fr)}section{padding:80px 0}.principles{gap:10px}.meta{margin-top:40px}}@media(max-width:480px){.wrap{width:88vw}.contact-pill{padding:9px 12px;font-size:.82rem}.navright{gap:9px}.lang{padding:7px 9px}.hero-sticky{min-height:540px}.hero-actions{gap:15px}.project{padding:22px}.project-foot{align-items:start}.stack-grid{grid-template-columns:1fr 1fr}.stack-card{padding:16px}.principle b{font-size:1.15rem}.principle span{font-size:.72rem}.ticker span{padding:15px 17px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero-hint i{animation:none}}
 </style>
 </head>
 <body>
-<div id="loader"><b id="pct">0</b></div>
-<nav>
-  <a href="#topo"><b>Leandro Wyler</b></a>
-  <div class="links"><a href="#projetos">Projetos</a><a href="#stack">Stack</a><a href="#contato">Contato</a></div>
-  <a class="cta" href="#contato">Contato</a>
-</nav>
-
-<section id="hero">
-  <div class="stick">
-    <canvas id="c"></canvas>
-    <div id="t1" class="t"><h1>Leandro<br>Wyler</h1><p>Desenvolvedor full stack e empreendedor.</p></div>
-    <div id="t2" class="t"><h2>Construo<br>com IA.</h2><p>SaaS, automações e produtos digitais, do protótipo ao ar.</p></div>
-    <div id="t3" class="t"><h2>Cada peça<br>tem função.</h2><a class="btn" href="#projetos">Ver projetos</a></div>
-    <div class="hint" id="hint">Role para desmontar<i></i></div>
-    <div class="bar" id="bar"></div>
-  </div>
-</section>
-
-<div class="mq"><div>
-  <span>SaaS com IA ✦ Automações ✦ Produtos digitais ✦ Vídeo com IA ✦ </span><span>SaaS com IA ✦ Automações ✦ Produtos digitais ✦ Vídeo com IA ✦ </span>
-  <span>SaaS com IA ✦ Automações ✦ Produtos digitais ✦ Vídeo com IA ✦ </span><span>SaaS com IA ✦ Automações ✦ Produtos digitais ✦ Vídeo com IA ✦ </span>
-</div></div>
-
-<section class="blk about" id="sobre">
-  <p class="rv">Sou desenvolvedor full stack e empreendedor brasileiro. Transformo ideias em produtos que funcionam.</p>
-  <p class="rv">Crio SaaS com IA, automações e produtos digitais para clientes e para os meus próprios negócios. Também produzo conteúdo e vendo no TikTok Shop.</p>
-</section>
-
-<section class="blk" id="projetos">
-  <h3>Projetos</h3>
-  <ul class="proj">
-    <li><b>Fluency</b><span>Plataforma para professores independentes de idiomas organizarem alunos e aulas.</span><em>TypeScript · Supabase</em></li>
-    <li><b>Wizardash</b><span>Sistema de gestão escolar desenvolvido para uma franquia Wizard.</span><em>TypeScript · Supabase</em></li>
-    <li><b>Postlyon</b><span>Agendador de posts do Instagram, com várias contas e usuários.</span><em>TypeScript · Supabase · Meta Graph API</em></li>
-    <li><b>OfertaHub</b><span>Automação de marketing de afiliados no WhatsApp.</span><em>Node.js · Baileys · Supabase</em></li>
-    <li><b>Battle Book</b><span>App PWA para competir com amigos em quem lê mais livros.</span><em>TypeScript · PWA</em></li>
-    <li><b>Flow Agent</b><span>Agente que gera, baixa e junta cenas de vídeo no Google Flow automaticamente.</span><em>Playwright · Veo</em></li>
-    <li><b>Editor em lote</b><span>Script que edita vídeos automaticamente, base para postagem automática.</span><em>Python · FFmpeg</em></li>
-    <li><b>Mining Simulator</b><span>Jogo no Roblox com lojas, mineradores, rebirth e salvamento de dados.</span><em>Roblox · Lua</em></li>
-  </ul>
-</section>
-
-<section class="blk" id="stack">
-  <h3>Stack</h3>
-  <div class="stack">
-    <div><h4>Front-end</h4><div class="chips"><span>TypeScript</span><span>React</span></div></div>
-    <div><h4>Back-end</h4><div class="chips"><span>Supabase</span><span>Postgres</span><span>pgvector</span><span>Edge Functions</span><span>Node.js</span><span>Python</span></div></div>
-    <div><h4>Automação</h4><div class="chips"><span>Telegram Bot API</span><span>Playwright</span><span>FFmpeg</span></div></div>
-    <div><h4>IA e vídeo</h4><div class="chips"><span>Nano Banana</span><span>Google Flow (Veo)</span><span>ElevenLabs</span></div></div>
-  </div>
-</section>
-
-<section class="blk contact" id="contato">
-  <h3>Vamos conversar?</h3>
-  <!-- TROQUE os links abaixo pelos seus -->
-  <a class="big" href="https://wa.me/12991463146">WhatsApp</a>
-  <a class="big" href="https://instagram.com/leandrowyler1">Instagram</a>
-</section>
-<footer><span>© Leandro Wyler</span><span>l</span></footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<div class="grain" aria-hidden="true"></div>
+<header><div class="wrap nav"><a class="brand" href="#top">LW<span>.</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#work" data-en="Work" data-pt="Projetos">Work</a><a href="#about" data-en="About" data-pt="Sobre">About</a><a href="#stack" data-en="Stack" data-pt="Tecnologias">Stack</a></nav><div class="navright"><button class="lang" id="language" aria-label="Switch language">PT / EN</button><a class="contact-pill" href="#contact" data-en="Let's talk ↗" data-pt="Vamos conversar ↗">Let's talk ↗</a></div></div></header>
+<main id="top">
+<section class="hero-scroll" id="hero-scroll" aria-label="Animated portfolio introduction"><div class="hero-sticky"><div class="hero-glow"></div><canvas class="hero-canvas" id="hero-frames" aria-hidden="true"></canvas><div class="hero-progress" id="hero-progress"></div><div class="hero-copy" data-step="1" id="hero-copy-1"><div class="eyebrow"><span class="dot"></span><span data-en="Full-stack developer · Independent builder" data-pt="Desenvolvedor full stack · Criador independente">Full-stack developer · Independent builder</span></div><h1 data-en-html="Leandro<br><em>Wyler.</em>" data-pt-html="Leandro<br><em>Wyler.</em>">Leandro<br><em>Wyler.</em></h1><p data-en="I build software, products and automations that solve real problems." data-pt="Construo softwares, produtos e automações que resolvem problemas reais.">I build software, products and automations that solve real problems.</p></div><div class="hero-copy" data-step="2" id="hero-copy-2"><div class="eyebrow" data-en="From prototype to product" data-pt="Do protótipo ao produto">From prototype to product</div><h1 data-en-html="Built with<br><em>purpose.</em>" data-pt-html="Criado com<br><em>propósito.</em>">Built with<br><em>purpose.</em></h1><p data-en="SaaS platforms, AI-powered workflows and practical tools for people and businesses." data-pt="Plataformas SaaS, fluxos com IA e ferramentas práticas para pessoas e empresas.">SaaS platforms, AI-powered workflows and practical tools for people and businesses.</p></div><div class="hero-copy" data-step="3" id="hero-copy-3"><div class="eyebrow" data-en="Selected work" data-pt="Projetos selecionados">Selected work</div><h1 data-en-html="Every piece<br>has a <em>purpose.</em>" data-pt-html="Cada peça<br>tem uma <em>função.</em>">Every piece<br>has a <em>purpose.</em></h1><a class="primary" href="#work" data-en="Explore my work ↘" data-pt="Ver meus projetos ↘">Explore my work ↘</a></div><div class="hero-hint" id="hero-hint" data-en="Scroll to explore" data-pt="Role para explorar">Scroll to explore<i></i></div></div></section>
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>FULL-STACK DEVELOPMENT <i>✳</i></span><span>AI WORKFLOWS <i>✳</i></span><span>SAAS PRODUCTS <i>✳</i></span><span>PROCESS AUTOMATION <i>✳</i></span><span>FULL-STACK DEVELOPMENT <i>✳</i></span><span>AI WORKFLOWS <i>✳</i></span><span>SAAS PRODUCTS <i>✳</i></span><span>PROCESS AUTOMATION <i>✳</i></span></div></div>
+<section id="work"><div class="wrap"><div class="section-top reveal"><div><div class="kicker" data-en="Selected work / 2024—2026" data-pt="Projetos selecionados / 2024—2026">Selected work / 2024—2026</div><h2 class="section-title" data-en="Built to be useful." data-pt="Feitos para resolver.">Built to be useful.</h2></div><p class="section-copy" data-en="A selection of products and automations across business software, AI and creative tooling." data-pt="Uma seleção de produtos e automações em software para negócios, IA e ferramentas criativas.">A selection of products and automations across business software, AI and creative tooling.</p></div>
+<div class="filters" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all" data-en="All work" data-pt="Todos">All work</button><button class="filter" data-filter="saas" data-en="SaaS & apps" data-pt="SaaS e apps">SaaS & apps</button><button class="filter" data-filter="ai" data-en="AI & automation" data-pt="IA e automação">AI & automation</button><button class="filter" data-filter="creative" data-en="Creative tools" data-pt="Ferramentas criativas">Creative tools</button></div>
+<div class="projects">
+<article class="project featured reveal" data-category="saas"><div class="project-top"><span class="project-num">01 / CLIENT PROJECT</span><span class="project-kind" data-en="Business software" data-pt="Software para negócios">Business software</span></div><h3>Wizard — School Management</h3><p data-en="A school-management platform built to support day-to-day operations for a language-school franchise. Designed around practical workflows and structured data." data-pt="Plataforma de gestão escolar desenvolvida para apoiar a operação diária de uma franquia de idiomas, com foco em fluxos práticos e dados organizados.">A school-management platform built to support day-to-day operations for a language-school franchise. Designed around practical workflows and structured data.</p><div class="project-foot"><div class="tags"><span>TypeScript</span><span>Supabase</span><span>Postgres</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="ai"><div class="project-top"><span class="project-num">02 / AI SYSTEM</span><span class="project-kind" data-en="Knowledge assistant" data-pt="Assistente de conhecimento">Knowledge assistant</span></div><h3>Wizard AI — Staff Assistant</h3><p data-en="A Telegram assistant designed to answer staff questions using a knowledge base built from 50+ school manuals." data-pt="Assistente no Telegram criado para responder dúvidas da equipe com base em uma biblioteca de mais de 50 manuais escolares.">A Telegram assistant designed to answer staff questions using a knowledge base built from 50+ school manuals.</p><div class="project-foot"><div class="tags"><span>Telegram Bot API</span><span>AI</span><span>Knowledge retrieval</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="saas"><div class="project-top"><span class="project-num">03 / OWN PRODUCT</span><span class="project-kind" data-en="Habit & routine app" data-pt="App de hábitos e rotina">Habit & routine app</span></div><h3>Batto</h3><p data-en="A habit and routine app that helps people keep small daily commitments through planning, progress and lightweight gamification." data-pt="Aplicativo de hábitos e rotina que ajuda pessoas a manter pequenos compromissos diários com planejamento, progresso e gamificação leve.">A habit and routine app that helps people keep small daily commitments through planning, progress and lightweight gamification.</p><div class="project-foot"><div class="tags"><span>React</span><span>TypeScript</span><span>Supabase</span><span>PWA</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="ai"><div class="project-top"><span class="project-num">04 / AUTOMATION</span><span class="project-kind" data-en="Reporting workflow" data-pt="Fluxo de relatórios">Reporting workflow</span></div><h3>Wizard — Ads Reporting</h3><p data-en="An automated reporting workflow that delivers paid-ad performance summaries to a business owner through Telegram." data-pt="Automação de relatórios que envia resumos de desempenho de anúncios pagos ao proprietário de um negócio pelo Telegram.">An automated reporting workflow that delivers paid-ad performance summaries to a business owner through Telegram.</p><div class="project-foot"><div class="tags"><span>Telegram</span><span>Reporting</span><span>Automation</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="creative"><div class="project-top"><span class="project-num">05 / CREATIVE AUTOMATION</span><span class="project-kind" data-en="AI video workflow" data-pt="Fluxo de vídeo com IA">AI video workflow</span></div><h3>Flow Agent</h3><p data-en="A browser-automation workflow to generate, download and combine video scenes from Google Flow." data-pt="Fluxo de automação de navegador para gerar, baixar e juntar cenas de vídeo no Google Flow.">A browser-automation workflow to generate, download and combine video scenes from Google Flow.</p><div class="project-foot"><div class="tags"><span>Playwright</span><span>Veo / Flow</span><span>Automation</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="ai"><div class="project-top"><span class="project-num">06 / MARKETING TOOL</span><span class="project-kind" data-en="Affiliate automation" data-pt="Automação de afiliados">Affiliate automation</span></div><h3>OfertaHub</h3><p data-en="An affiliate-marketing automation project focused on organizing and distributing product offers through WhatsApp workflows." data-pt="Projeto de automação de marketing de afiliados focado em organizar e distribuir ofertas de produtos por fluxos no WhatsApp.">An affiliate-marketing automation project focused on organizing and distributing product offers through WhatsApp workflows.</p><div class="project-foot"><div class="tags"><span>Node.js</span><span>Supabase</span><span>Baileys</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="saas"><div class="project-top"><span class="project-num">07 / SOCIAL TOOL</span><span class="project-kind" data-en="Publishing workflow" data-pt="Publicação de conteúdo">Publishing workflow</span></div><h3>Postlyon</h3><p data-en="An Instagram post scheduler concept for managing multiple accounts and users in one workflow." data-pt="Agendador de posts para Instagram pensado para gerenciar várias contas e usuários em um único fluxo.">An Instagram post scheduler concept for managing multiple accounts and users in one workflow.</p><div class="project-foot"><div class="tags"><span>TypeScript</span><span>Supabase</span><span>Meta Graph API</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="creative"><div class="project-top"><span class="project-num">08 / DEVELOPER TOOL</span><span class="project-kind" data-en="Batch video processing" data-pt="Edição de vídeo em lote">Batch video processing</span></div><h3>Batch Video Editor</h3><p data-en="A Python and FFmpeg tool for applying edits and overlays to multiple videos in a repeatable workflow." data-pt="Ferramenta em Python e FFmpeg para aplicar edições e sobreposições em vários vídeos com um fluxo repetível.">A Python and FFmpeg tool for applying edits and overlays to multiple videos in a repeatable workflow.</p><div class="project-foot"><div class="tags"><span>Python</span><span>FFmpeg</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="saas"><div class="project-top"><span class="project-num">09 / GAME DEVELOPMENT</span><span class="project-kind" data-en="Roblox game" data-pt="Jogo no Roblox">Roblox game</span></div><h3>Mining Simulator</h3><p data-en="A Roblox game featuring shops, mining mechanics, rebirth progression and player-data saving." data-pt="Jogo no Roblox com lojas, mecânicas de mineração, progressão por rebirth e salvamento de dados dos jogadores.">A Roblox game featuring shops, mining mechanics, rebirth progression and player-data saving.</p><div class="project-foot"><div class="tags"><span>Roblox Studio</span><span>Lua</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="saas"><div class="project-top"><span class="project-num">10 / SOCIAL READING</span><span class="project-kind" data-en="PWA" data-pt="PWA">PWA</span></div><h3>Battle Book</h3><p data-en="A progressive web app concept that turns reading into a friendly competition between friends." data-pt="Conceito de aplicativo web progressivo que transforma a leitura em uma competição amigável entre amigos.">A progressive web app concept that turns reading into a friendly competition between friends.</p><div class="project-foot"><div class="tags"><span>TypeScript</span><span>PWA</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+<article class="project reveal" data-category="saas"><div class="project-top"><span class="project-num">11 / EDUCATION</span><span class="project-kind" data-en="Learning platform" data-pt="Plataforma educacional">Learning platform</span></div><h3>Fluency</h3><p data-en="A platform concept to help independent language teachers organize students and lessons." data-pt="Conceito de plataforma para ajudar professores independentes de idiomas a organizar alunos e aulas.">A platform concept to help independent language teachers organize students and lessons.</p><div class="project-foot"><div class="tags"><span>TypeScript</span><span>Supabase</span></div><span class="arrow" aria-hidden="true">↗</span></div></article>
+</div></div></section>
+<section id="about"><div class="wrap about-grid"><div class="reveal"><div class="kicker" data-en="A little about me" data-pt="Um pouco sobre mim">A little about me</div><h2 class="section-title" data-en="Curious by nature.<br>Builder by choice." data-pt="Curioso por natureza.<br>Criador por escolha.">Curious by nature.<br>Builder by choice.</h2></div><div class="reveal"><p class="about-statement" data-en-html="I enjoy turning messy, manual processes into <em>clear, useful software.</em>" data-pt-html="Gosto de transformar processos manuais e confusos em <em>software útil e simples.</em>">I enjoy turning messy, manual processes into <em>clear, useful software.</em></p><div class="about-body"><p data-en="My work spans full-stack development, business systems, AI-assisted workflows and small products of my own. I care about building things people can actually use, not just demos that look good." data-pt="Meu trabalho passa por desenvolvimento full stack, sistemas de negócio, fluxos com IA e produtos próprios. Gosto de construir coisas que as pessoas realmente usem, não apenas demonstrações bonitas.">My work spans full-stack development, business systems, AI-assisted workflows and small products of my own. I care about building things people can actually use, not just demos that look good.</p><p data-en="I like learning by shipping: understanding a problem, building a practical solution, testing it and improving it." data-pt="Gosto de aprender construindo: entender um problema, desenvolver uma solução prática, testar e melhorar.">I like learning by shipping: understanding a problem, building a practical solution, testing it and improving it.</p></div><div class="principles"><div class="principle"><b>01</b><span data-en="Build with purpose" data-pt="Construir com propósito">Build with purpose</span></div><div class="principle"><b>02</b><span data-en="Automate the boring" data-pt="Automatizar o repetitivo">Automate the boring</span></div><div class="principle"><b>03</b><span data-en="Keep learning" data-pt="Continuar aprendendo">Keep learning</span></div></div></div></div></section>
+<section id="stack"><div class="wrap"><div class="section-top reveal"><div><div class="kicker" data-en="Tools I work with" data-pt="Tecnologias que utilizo">Tools I work with</div><h2 class="section-title" data-en="My toolkit." data-pt="Minha stack.">My toolkit.</h2></div><p class="section-copy" data-en="Grouped by the kind of problem they help me solve." data-pt="Organizadas pelo tipo de problema que me ajudam a resolver.">Grouped by the kind of problem they help me solve.</p></div><div class="stack-grid"><div class="stack-card reveal"><h3>Frontend</h3><div class="chips"><span>TypeScript</span><span>React</span><span>HTML / CSS</span></div></div><div class="stack-card reveal"><h3>Backend & data</h3><div class="chips"><span>Supabase</span><span>Postgres</span><span>Edge Functions</span><span>Node.js</span><span>Python</span></div></div><div class="stack-card reveal"><h3>Automation</h3><div class="chips"><span>Playwright</span><span>Telegram Bot API</span><span>FFmpeg</span><span>Baileys</span></div></div><div class="stack-card reveal"><h3>AI & media</h3><div class="chips"><span>AI workflows</span><span>Google Flow / Veo</span><span>ElevenLabs</span><span>Nano Banana</span></div></div></div></div></section>
+<section class="contact-section" id="contact"><div class="wrap"><div class="contact-panel reveal"><div class="kicker" data-en="Have a good problem to solve?" data-pt="Tem um bom problema para resolver?">Have a good problem to solve?</div><h2 data-en="Let's build something useful." data-pt="Vamos construir algo útil.">Let's build something useful.</h2><p data-en="Open to thoughtful collaborations, interesting products and full-stack opportunities." data-pt="Aberto a colaborações, produtos interessantes e oportunidades em desenvolvimento full stack.">Open to thoughtful collaborations, interesting products and full-stack opportunities.</p><div class="contact-links"><a href="https://wa.me/12991463146" target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="https://www.linkedin.com/in/leandro-wyler/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://instagram.com/leandrowyler1" target="_blank" rel="noreferrer">Instagram ↗</a></div></div></div></section>
+</main><footer><div class="wrap footer-inner"><span>© <span id="year"></span> Leandro Wyler</span><span data-en="Designed to be clear. Built to be useful." data-pt="Design direto. Código útil.">Designed to be clear. Built to be useful.</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div></footer>
 <script>
-/* ===== CONFIG ===== */
-const DESK = {dir:'frames',   count:150};   // frames 16:9 (computador)
-const MOB  = {dir:'frames-m', count:150};   // frames 9:16 (celular) - opcional, usado automaticamente se existir
-const EXT  = 'webp';
-const BG   = '#0a3b8f';                      // cor de fundo dos frames (usada nas barras no celular sem frames-m)
-const ZOOM = 1.9;                            // zoom no celular quando só há frames 16:9
-/* ================== */
-
-gsap.registerPlugin(ScrollTrigger);
-const cv=document.getElementById('c'), ctx=cv.getContext('2d');
-const dpr=Math.min(devicePixelRatio||1,2);
-const url=(d,i)=>`${d}/f_${String(i).padStart(3,'0')}.${EXT}`;
-const range=n=>Array.from({length:n},(_,i)=>i+1);
-const probe=u=>new Promise(r=>{const i=new Image();i.onload=()=>r(true);i.onerror=()=>r(false);i.src=u});
-const frames=[]; let mode='cover', cur=0, last=-1, N=1;
-
-function fit(){ cv.width=innerWidth*dpr; cv.height=innerHeight*dpr; ctx.imageSmoothingQuality='high'; last=-1; draw(cur); }
-addEventListener('resize',()=>{ if(Math.abs(innerWidth-cv.width/dpr)>1) fit(); });
-
-function draw(i){
-  const img=frames[i]; if(!img||!img.complete||!img.naturalWidth||i===last) return;
-  const w=cv.width,h=cv.height; let s;
-  if(mode==='zoom'){ s=w/img.naturalWidth*ZOOM; ctx.fillStyle=BG; ctx.fillRect(0,0,w,h); }
-  else s=Math.max(w/img.naturalWidth,h/img.naturalHeight);
-  const iw=img.naturalWidth*s, ih=img.naturalHeight*s;
-  ctx.drawImage(img,(w-iw)/2,(h-ih)/2,iw,ih); last=i;
-}
-
-async function pick(){
-  const portrait=innerHeight>innerWidth;
-  if(portrait && await probe(url(MOB.dir,1))){ mode='cover'; return range(MOB.count).map(i=>url(MOB.dir,i)); }
-  const all=range(DESK.count).map(i=>url(DESK.dir,i));
-  if(portrait){ mode='zoom'; return all.filter((_,i)=>i%2===0); }   // celular sem frames-m: metade dos frames, mais leve
-  mode='cover'; return all;
-}
-
-function load(urls){
-  N=urls.length;
-  return new Promise(res=>{
-    const pct=document.getElementById('pct'); let done=0;
-    const tick=()=>{ pct.textContent=Math.round(done/N*100); if(done>=N) res(); };
-    urls.forEach(u=>{ const im=new Image(); im.onload=im.onerror=()=>{done++;tick()}; im.src=u; frames.push(im); });
-  });
-}
-
-function start(){
-  const lenis=new Lenis({lerp:.09});
-  lenis.on('scroll',ScrollTrigger.update);
-  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
-  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-    const id=a.getAttribute('href'); e.preventDefault(); lenis.scrollTo(id==='#topo'?0:id,{offset:-10});
-  }));
-
-  const fade=(id,a,b)=>{
-    const el=document.getElementById(id);
-    return p=>{
-      const inn=gsap.utils.clamp(0,1,(p-a)/.05), out=gsap.utils.clamp(0,1,(p-(b-.05))/.05), o=inn*(1-out);
-      el.style.opacity=o; el.style.transform=`translateY(${(1-inn)*36-out*36}px)`; el.style.pointerEvents=o>.5?'auto':'none';
-    };
-  };
-  const f1=fade('t1',0,.26), f2=fade('t2',.30,.62), f3=fade('t3',.68,1.01), bar=document.getElementById('bar'), hint=document.getElementById('hint');
-
-  ScrollTrigger.create({
-    trigger:'#hero', start:'top top', end:'bottom bottom',
-    onUpdate:s=>{
-      const p=s.progress; cur=Math.min(N-1,Math.round(p*(N-1)));
-      draw(cur); f1(p); f2(p); f3(p); bar.style.width=p*100+'%'; hint.style.opacity=1-gsap.utils.clamp(0,1,p/.03);
-    }
-  });
-  f1(0); draw(0);
-
-  // texto do "sobre" acende palavra por palavra conforme o scroll
-  document.querySelectorAll('.rv').forEach(p=>{
-    p.innerHTML=p.textContent.trim().split(' ').map(w=>`<span>${w}</span>`).join(' ');
-    gsap.fromTo(p.children,{opacity:.18},{opacity:1,stagger:.12,ease:'none',
-      scrollTrigger:{trigger:p,start:'top 85%',end:'bottom 55%',scrub:true}});
-  });
-}
-
-(async()=>{
-  fit(); await load(await pick()); fit(); start();
-  const l=document.getElementById('loader'); l.style.opacity=0; setTimeout(()=>l.remove(),600);
+// Scroll-controlled image sequence: frames/f_001.webp ... f_150.webp.
+// On portrait screens, prefer frames-m when that sequence exists.
+(()=>{
+ const section=document.getElementById('hero-scroll'),canvas=document.getElementById('hero-frames');
+ if(!section||!canvas)return;
+ const ctx=canvas.getContext('2d');if(!ctx)return;
+ const copies=[1,2,3].map(n=>document.getElementById('hero-copy-'+n));
+ const progress=document.getElementById('hero-progress'),hint=document.getElementById('hero-hint');
+ let images=[],loaded=0,current=-1,portrait=innerHeight>innerWidth,mode='cover',ready=false;
+ const count=150,ext='webp',zoom=1.9,bg='#0a3b8f';
+ const frameUrl=(dir,i)=>dir+'/f_'+String(i).padStart(3,'0')+'.'+ext;
+ const resize=()=>{const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);ctx.imageSmoothingQuality='high';current=-1;paint(Math.max(0,Math.min(images.length-1,Math.round(scrollProgress()*(images.length-1)))));};
+ function scrollProgress(){const r=section.getBoundingClientRect();return Math.max(0,Math.min(1,-r.top/(section.offsetHeight-innerHeight||1)));}
+ function paint(index){const img=images[index];if(!img||!img.complete||!img.naturalWidth||index===current)return;const w=canvas.width,h=canvas.height;let scale;if(mode==='zoom'){scale=w/img.naturalWidth*zoom;ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);}else{scale=Math.max(w/img.naturalWidth,h/img.naturalHeight);}const iw=img.naturalWidth*scale,ih=img.naturalHeight*scale;ctx.drawImage(img,(w-iw)/2,(h-ih)/2,iw,ih);current=index;}
+ function update(){const p=scrollProgress();if(ready&&images.length)paint(Math.min(images.length-1,Math.round(p*(images.length-1))));progress.style.width=(p*100)+'%';const ranges=[[0,.28],[.29,.64],[.66,1.01]];copies.forEach((el,i)=>{const [a,b]=ranges[i],enter=Math.max(0,Math.min(1,(p-a)/.055)),leave=Math.max(0,Math.min(1,(p-(b-.055))/.055)),opacity=enter*(1-leave);el.style.opacity=String(opacity);el.style.transform='translateY('+((1-enter)*30-leave*30)+'px)';el.style.pointerEvents=opacity>.5?'auto':'none';});hint.style.opacity=String(1-Math.min(1,p/.035));}
+ function loadSequence(dir,n){return new Promise(resolve=>{let finished=0;const arr=new Array(n);for(let i=1;i<=n;i++){const img=new Image();arr[i-1]=img;const done=()=>{finished++;if(finished===n)resolve(arr)};img.onload=done;img.onerror=done;img.src=frameUrl(dir,i);}});}
+ async function init(){resize();let dir='frames',n=count;if(portrait){const test=new Image();const hasMobile=await new Promise(resolve=>{test.onload=()=>resolve(true);test.onerror=()=>resolve(false);test.src=frameUrl('frames-m',1);});if(hasMobile)dir='frames-m';else mode='zoom';}images=await loadSequence(dir,n);ready=true;const first=images.findIndex(im=>im.complete&&im.naturalWidth);if(first>=0)paint(first);update();}
+ window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',()=>{const next=innerHeight>innerWidth;if(next!==portrait){portrait=next;location.reload();return;}resize();update();},{passive:true});
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){section.style.height='100vh';}else{init();}
 })();
+const langButton=document.getElementById('language');let lang='en';
+function setLanguage(next){lang=next;document.documentElement.lang=lang==='en'?'en':'pt-BR';document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[lang]});document.querySelectorAll('[data-en-html]').forEach(el=>{el.innerHTML=el.dataset[lang+'Html']});langButton.textContent=lang==='en'?'PT / EN':'EN / PT';}
+langButton.addEventListener('click',()=>setLanguage(lang==='en'?'pt':'en'));
+const filters=[...document.querySelectorAll('.filter')],projects=[...document.querySelectorAll('.project')];filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.toggle('active',b===btn));projects.forEach(card=>card.classList.toggle('hidden',btn.dataset.filter!=='all'&&card.dataset.category!==btn.dataset.filter));}));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal:not(.in)').forEach(el=>observer.observe(el));document.getElementById('year').textContent=new Date().getFullYear();
 </script>
-</body>
-</html>
+</body></html>
