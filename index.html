@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leandro Wyler — Full Stack Developer</title>
+<meta name="description" content="Desenvolvedor full stack e empreendedor. SaaS com IA, produtos digitais e automações.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06163f;--ink:#fff4ea;--hot:#ff6a4d;--line:rgba(255,244,234,.18);--mute:rgba(255,244,234,.68)}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg)}
+body{font-family:'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:inherit}
+#loader{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:20;transition:opacity .6s}
+#loader b{font-size:clamp(3rem,14vw,9rem);font-weight:800;font-variant-numeric:tabular-nums}
+nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5vw;z-index:10;font-weight:500}
+nav .links{display:flex;gap:1.6rem}
+nav a{text-decoration:none}
+nav a:hover{color:var(--hot)}
+#hero{height:600vh;position:relative}
+.stick{position:sticky;top:0;height:100vh;overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%}
+.stick::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(6,22,63,.75));pointer-events:none}
+.t{position:absolute;left:5vw;z-index:2;opacity:0;will-change:transform,opacity;max-width:min(34vw,30rem)}
+.t h1,.t h2{font-weight:800;line-height:.9;letter-spacing:-.04em;font-size:clamp(2.4rem,7vw,6.4rem)}
+.t p{margin-top:1rem;font-weight:300;font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.4}
+#t1{bottom:9vh}#t2{top:50%;margin-top:-6rem}#t3{bottom:9vh}
+#t3 .btn{display:inline-block;margin-top:1.4rem;padding:.85rem 1.5rem;border-radius:99px;background:var(--hot);color:#240800;font-weight:800;text-decoration:none}
+.bar{position:absolute;left:0;top:0;height:4px;background:var(--hot);width:0;z-index:3}
+section.blk{padding:16vh 5vw 4vh;max-width:1400px;margin:0 auto}
+h3{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1;margin-bottom:2.5rem}
+.about p{font-size:clamp(1.3rem,2.8vw,2.1rem);line-height:1.3;font-weight:300;max-width:34ch}
+.about p+p{margin-top:1.2rem;color:var(--mute)}
+.proj{list-style:none;padding:0;border-top:1px solid var(--line)}
+.proj li{display:grid;grid-template-columns:1.1fr 2fr 1.3fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
+.proj li:hover{padding-left:1rem;background:rgba(255,244,234,.05)}
+.proj b{font-size:1.4rem;font-weight:800;letter-spacing:-.02em}
+.proj span{color:var(--mute)}
+.proj em{font-style:normal;color:var(--hot);font-size:.95rem}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+.stack h4{font-size:1rem;font-weight:500;color:var(--hot);margin-bottom:.6rem}
+.stack p{font-size:1.15rem;line-height:1.5}
+.contact{padding-bottom:14vh}
+.contact a.big{display:block;font-size:clamp(2rem,7vw,5.5rem);font-weight:800;letter-spacing:-.03em;text-decoration:none;line-height:1.05;margin-bottom:.4rem}
+.contact a.big:hover{color:var(--hot)}
+footer{padding:2rem 5vw;border-top:1px solid var(--line);color:var(--mute);font-size:.95rem}
+@media(max-width:760px){
+  nav .links{gap:1rem;font-size:.9rem}
+  .t{max-width:80vw}
+  #t2{top:12vh;margin-top:0}
+  .proj li{grid-template-columns:1fr;gap:.4rem}
+}
+@media(prefers-reduced-motion:reduce){#hero{height:300vh}}
+</style>
+</head>
+<body>
+<div id="loader"><b id="pct">0</b></div>
+<nav>
+  <a href="#topo"><b>Leandro Wyler</b></a>
+  <div class="links"><a href="#projetos">Projetos</a><a href="#stack">Stack</a><a href="#contato">Contato</a></div>
+</nav>
+
+<section id="hero">
+  <div class="stick">
+    <canvas id="c"></canvas>
+    <div id="t1" class="t"><h1>Leandro<br>Wyler</h1><p>Desenvolvedor full stack e empreendedor.</p></div>
+    <div id="t2" class="t"><h2>Construo<br>com IA.</h2><p>SaaS, automações e produtos digitais, do protótipo ao ar.</p></div>
+    <div id="t3" class="t"><h2>Cada peça<br>tem função.</h2><a class="btn" href="#projetos">Ver projetos</a></div>
+    <div class="bar" id="bar"></div>
+  </div>
+</section>
+
+<section class="blk about" id="sobre">
+  <p>Sou brasileiro, desenvolvedor full stack e empreendedor. Transformo ideias em produtos que funcionam.</p>
+  <p>Crio SaaS com IA, automações e produtos digitais para clientes e para os meus próprios negócios. Também produzo conteúdo e vendo no TikTok Shop.</p>
+</section>
+
+<section class="blk" id="projetos">
+  <h3>Projetos</h3>
+  <ul class="proj">
+    <li><b>Fluency</b><span>Plataforma para professores independentes de idiomas organizarem alunos e aulas.</span><em>Lovable · Supabase</em></li>
+    <li><b>Wizardash</b><span>Sistema de gestão escolar desenvolvido para uma franquia Wizard.</span><em>Lovable · Supabase</em></li>
+    <li><b>Postlyon</b><span>Agendador de posts do Instagram, com várias contas e usuários.</span><em>Lovable · Supabase · Meta Graph API</em></li>
+    <li><b>OfertaHub</b><span>Automação de marketing de afiliados no WhatsApp.</span><em>Node.js · Baileys · Supabase</em></li>
+    <li><b>Battle Book</b><span>App PWA para competir com amigos em quem lê mais livros.</span><em>Lovable · PWA</em></li>
+    <li><b>Flow Agent</b><span>Agente que gera, baixa e junta cenas de vídeo no Google Flow automaticamente.</span><em>Playwright · Veo</em></li>
+    <li><b>Editor em lote</b><span>Script que edita vídeos automaticamente, base para postagem automática.</span><em>Python · FFmpeg</em></li>
+    <li><b>Mining Simulator</b><span>Jogo no Roblox com lojas, mineradores, rebirth e salvamento de dados.</span><em>Roblox · Lua</em></li>
+  </ul>
+</section>
+
+<section class="blk" id="stack">
+  <h3>Stack</h3>
+  <div class="stack">
+    <div><h4>Front-end</h4><p>Lovable, React</p></div>
+    <div><h4>Back-end</h4><p>Supabase (Postgres, pgvector, Edge Functions), Node.js, Python</p></div>
+    <div><h4>Automação</h4><p>Telegram Bot API, Playwright, FFmpeg</p></div>
+    <div><h4>IA e vídeo</h4><p>Nano Banana, Google Flow (Veo), ElevenLabs</p></div>
+  </div>
+</section>
+
+<section class="blk contact" id="contato">
+  <h3>Vamos conversar?</h3>
+  <!-- TROQUE os links abaixo pelos seus -->
+  <a class="big" href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
+  <a class="big" href="https://wa.me/55SEUNUMERO">WhatsApp</a>
+  <a class="big" href="https://instagram.com/SEUUSUARIO">Instagram</a>
+</section>
+
+<footer>© Leandro Wyler</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ===== CONFIG ===== */
+const FRAME_COUNT = 150;
+const FRAME_PATH  = i => `frames/f_${String(i).padStart(3,'0')}.webp`;
+/* ================== */
+
+gsap.registerPlugin(ScrollTrigger);
+const cv=document.getElementById('c'), ctx=cv.getContext('2d');
+const dpr=Math.min(devicePixelRatio||1,2);
+const frames=[]; let cur=0, lastDrawn=-1;
+
+function fit(){ cv.width=innerWidth*dpr; cv.height=innerHeight*dpr; lastDrawn=-1; draw(cur); }
+addEventListener('resize',fit);
+
+function draw(i){
+  const img=frames[i]; if(!img||!img.complete||!img.naturalWidth||i===lastDrawn) return;
+  const w=cv.width,h=cv.height,s=Math.max(w/img.naturalWidth,h/img.naturalHeight);
+  const iw=img.naturalWidth*s, ih=img.naturalHeight*s;
+  ctx.drawImage(img,(w-iw)/2,(h-ih)/2,iw,ih); lastDrawn=i;
+}
+
+function load(){
+  return new Promise(res=>{
+    const pct=document.getElementById('pct'); let done=0;
+    const tick=()=>{ pct.textContent=Math.round(done/FRAME_COUNT*100); if(done>=FRAME_COUNT) res(); };
+    for(let i=0;i<FRAME_COUNT;i++){
+      const im=new Image(); im.onload=im.onerror=()=>{done++;tick()};
+      im.src=FRAME_PATH(i+1); frames.push(im);
+    }
+  });
+}
+
+function start(){
+  const lenis=new Lenis({lerp:.08});
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('href'); e.preventDefault();
+    lenis.scrollTo(id==='#topo'?0:id,{offset:-10});
+  }));
+
+  const fade=(id,a,b)=>{
+    const el=document.getElementById(id);
+    return p=>{
+      const inn=gsap.utils.clamp(0,1,(p-a)/.05), out=gsap.utils.clamp(0,1,(p-(b-.05))/.05), o=inn*(1-out);
+      el.style.opacity=o; el.style.transform=`translateY(${(1-inn)*36-out*36}px)`;
+      el.style.pointerEvents=o>.5?'auto':'none';
+    };
+  };
+  const f1=fade('t1',0,.26), f2=fade('t2',.30,.62), f3=fade('t3',.68,1.01), bar=document.getElementById('bar');
+
+  ScrollTrigger.create({
+    trigger:'#hero', start:'top top', end:'bottom bottom',
+    onUpdate:s=>{
+      const p=s.progress; cur=Math.min(FRAME_COUNT-1,Math.round(p*(FRAME_COUNT-1)));
+      draw(cur); f1(p); f2(p); f3(p); bar.style.width=p*100+'%';
+    }
+  });
+  f1(0); draw(0);
+}
+
+(async()=>{
+  fit(); await load(); fit(); start();
+  const l=document.getElementById('loader'); l.style.opacity=0; setTimeout(()=>l.remove(),600);
+})();
+</script>
+</body>
+</html>
